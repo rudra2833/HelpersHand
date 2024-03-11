@@ -1,0 +1,160 @@
+/* style for header */
+
+html{
+  width: 100%;
+  height: 100%;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* navbar */
+
+header{
+  padding: 20px 20px;
+}
+
+.nav-bar{
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 100%;
+}
+
+
+.navbar-logo img {
+  width: 127px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+
+.navbar-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 6rem;
+  font-size: 1.3rem;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+header a{
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+}
+
+.navbar-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+/* .navbar-buttons .bttn {
+  background-color: #3d5a80;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 10px 30px;
+  border: 1px solid black;
+  border-radius: 25px;
+  box-shadow: 6px 6px 12px #c5c5c5,
+  -6px -6px 12px #ffffff; 
+} */
+
+.navbar-buttons .bttn {
+  background-color: #3d5a80;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 10px 12px;
+  border: 1px solid black;
+  border-radius: 25px;
+  box-shadow: 6px 6px 12px #c5c5c5,
+  -6px -6px 12px #ffffff; 
+}
+
+.bttn a{
+  color: white; 
+}
+
+.bttn i{
+  color: white;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+/* footer */
+
+.footer {
+  background-color: #3d5a80;
+  color: #fefefe;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  mix-blend-mode: difference;
+}
+
+.footer .heading {
+  color: #fefefe;
+  max-width: 1010px;
+  width: 90%;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.footer .content {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1.5rem;
+}
+
+.footer .content p {
+  margin-bottom: 1.3rem;
+}
+
+.footer .content a {
+  text-decoration: none;
+  color: #fefefe;
+}
+
+.footer .content a:hover {
+  border-bottom: 1px solid #cdcaca;
+}
+
+.footer .content h4 {
+  margin-bottom: 1.3rem;
+  font-size: 34px;
+}
+
+footer {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+footer hr {
+  margin: 2rem 0;
+}
+
+.footer {
+  position: unset;
+}
+
+.footoff {
+  padding-top: 20px;
+}

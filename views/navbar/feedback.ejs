@@ -1,0 +1,63 @@
+<%- include("../partials/header.ejs") %>
+
+    <!-- feedback -->
+    <div class="fb_title">
+        Your Feedback make us improve!!!!
+    </div>
+
+    <div class="horline"></div>
+
+    <div class="fb_wrap1">
+
+        <div class="fb_box1">
+
+            <div class="fb_input-box" id="fb_Name-box">
+                <i class="bx bxs-user"></i>
+                <input class="fb_perName" type="text" placeholder="Enter Name" required />
+            </div>
+
+            <div class="fb_input-box" id="fb_Email-id-box">
+                <i class="bx bxs-envelope"></i>
+                <input class="fb_perEID" type="email" placeholder="Enter Email-id" required />
+            </div>
+
+            <div class="fb_input-box" id="fb_Message-box">
+                <textarea class="fb_Message" type="text" placeholder="Message..." style="width: 371px; 
+            height: 252px;" required></textarea>
+            </div>
+
+            <!-- star -->
+            <div class="fb_star-box">
+                <header>How was Your experience?</header>
+
+                <div class="fb_stars">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                </div>
+
+            </div>
+
+            <div class="fb_sub">
+                <input class="fb_sub-btn" type="submit" value="Submit">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- script for stars -->
+    <script>
+        const stars = document.querySelectorAll(".fb_stars i");
+        stars.forEach((star, index1) => {
+            star.addEventListener("click", () => {
+                stars.forEach((star, index2) => {
+                    index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
+                })
+            })
+        })
+    </script>
+
+    <%- include("../partials/footer.ejs") %>
