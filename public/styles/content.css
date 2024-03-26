@@ -596,8 +596,8 @@
     align-items: center;
     color: rgb(41, 40, 40);
     font-weight: 700;
-    padding: 10px 60px;
-    font-size: 28px;
+    padding: 10px 20px;
+    font-size: 1.5rem;
     text-align: right;
     padding-left: 10px;
     font-family: monospace;
@@ -666,7 +666,7 @@
 .sp_form input {
     width: 95%;
     font-family: monospace;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .sp_form i {
@@ -696,7 +696,7 @@
     height: 57px;
     position: relative;
     top: 20px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .sp_sub-btn:hover {
@@ -740,3 +740,8 @@
 .sp_t2 {
     padding-top: 15px;
 }
+
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+

@@ -35,6 +35,12 @@ app.get("/feedback",(req,res)=>{
     res.render("navbar/feedback.ejs");
 })
 
+app.get("/login",(req,res)=>{
+    res.render("forms_page/log-reg.ejs");
+})
+
+
+
 // port listening
 app.listen(port,()=>{
     console.log(`Listening at port: ${port}`);
