@@ -1,0 +1,75 @@
+<%- include("partials/header.ejs") %>
+<link rel="stylesheet" href="styles/searchpage.css">
+
+    <form class="searchbar" action="/submit">
+
+        <select name="city" id="cityname" class="sbaritem">
+          <option value="none" selected disabled hidden>Select City</option>
+          <option value="Ahemdabad">Ahemdabad</option>
+          <option value="Surat">Surat</option>
+          <option value="Gandinagar">Gandinagar</option>
+          <option value="Himatnagar">Himatnagar</option>
+        </select>
+
+        <select name="service" id="service" class="sbaritem">
+            <option value="none" selected disabled hidden>Select Service</option>
+          <option value="Electrician">Electrician</option>
+          <option value="Plumber">Plumber</option>
+          <option value="Painter">Painter</option>
+          <option value="Carpanter">Carpanter</option>
+        </select>
+
+        <input type="submit" value="🔎" class="submitbtn">
+
+    </form>
+
+    <div class="out1">
+
+        <a href="#" class="in_out1">
+
+            <div class="io1_left">
+                <img src="" alt="">
+            </div>
+            <div class="io1_right">
+                <span class="disp_name righti">Russel Patel</span>
+                <span class="disp_cat righti">Electrician</span>
+                <span class="disp_rate righti">4.82⭐</span>
+                <span class="disp_area righti">Ahmedabad</span>
+                <span class="disp_price righti">₹ 250</span>
+            </div>
+
+        </a>
+
+        <a href="#" class="in_out1">
+
+            <div class="io1_left">
+                <img src="" alt="">
+            </div>
+            <div class="io1_right">
+                <span class="disp_name righti">Russel Patel</span>
+                <span class="disp_cat righti">Electrician</span>
+                <span class="disp_rate righti">4.82⭐</span>
+                <span class="disp_area righti">Ahmedabad</span>
+                <span class="disp_price righti">₹ 250</span>
+            </div>
+
+        </a>
+
+        <a href="#" class="in_out1">
+
+            <div class="io1_left">
+                <img src="" alt="">
+            </div>
+            <div class="io1_right">
+                <span class="disp_name righti">Russel Patel</span>
+                <span class="disp_cat righti">Electrician</span>
+                <span class="disp_rate righti">4.82⭐</span>
+                <span class="disp_area righti">Ahmedabad</span>
+                <span class="disp_price righti">₹ 250</span>
+            </div>
+
+        </a>
+
+    </div>
+
+<%- include("partials/footer.ejs") %>

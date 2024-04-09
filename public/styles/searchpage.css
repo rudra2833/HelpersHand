@@ -1,0 +1,120 @@
+html {
+    width: 100%;
+    height: 100%;
+    /* background-color: teal ; */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;  
+    transition-duration: .5s;
+}
+
+.out1{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.in_out1{
+    border: 1px solid black;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+.in_out1 .io1_left{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 8px;
+    border-right: 1px solid rgba(0, 0, 0, 0.122);
+}
+
+.in_out1 .io1_left img{
+    height: 220px;
+    width: 200px;
+    background-color: gray;
+    border-radius: 5px;
+}
+
+.io1_right{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.righti{
+    padding: 0 5px;
+    padding-top: 10px;
+}
+
+.disp_name{
+    font-size: 1.6rem;
+    font-weight: bolder;
+    max-height: 2.5em
+}
+
+.disp_cat, .disp_area, .disp_rate{
+    color: rgba(48, 48, 48, 0.814);;
+}
+
+.disp_price{
+    margin-top: auto;
+    margin-left: auto;
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    font-weight: bolder;
+}
+
+
+
+
+
+
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+.searchbar{
+    background-color: rgba(128, 128, 128, 0.1);
+    height: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.sbaritem{
+    margin: 0 20px;
+    width: 220px;
+    font-size: 1em;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 20px;
+    appearance: none;
+}
+
+.searchbar input{
+    border-radius: 50%;
+    font-size: 1.5em;
+    padding: 6px;
+    margin-left: 10px;
+
+}
+
