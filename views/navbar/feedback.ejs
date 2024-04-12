@@ -7,23 +7,23 @@
 
     <div class="horline"></div>
 
-    <div class="fb_wrap1">
+    <form action="/feedback/submit" method="post" class="fb_wrap1">
 
         <div class="fb_box1">
 
             <div class="fb_input-box" id="fb_Name-box">
                 <i class="bx bxs-user"></i>
-                <input class="fb_perName" type="text" placeholder="Enter Name" required />
+                <input class="fb_perName" type="text" placeholder="Enter Name" name="name" />
             </div>
 
             <div class="fb_input-box" id="fb_Email-id-box">
                 <i class="bx bxs-envelope"></i>
-                <input class="fb_perEID" type="email" placeholder="Enter Email-id" required />
+                <input class="fb_perEID" type="email" placeholder="Enter Email-id" name="email" required />
             </div>
 
             <div class="fb_input-box" id="fb_Message-box">
                 <textarea class="fb_Message" type="text" placeholder="Message..." style="width: 371px; 
-            height: 252px;" required></textarea>
+            height: 252px;" name="message"></textarea>
             </div>
 
             <!-- star -->
@@ -40,22 +40,26 @@
 
             </div>
 
+            <input type="hidden" name="rating" id="ratingInput">
+
             <div class="fb_sub">
-                <input class="fb_sub-btn" type="submit" value="Submit">
+                <button class="fb_sub-btn" type="submit">Submit</button>
             </div>
         </div>
-    </div>
+    </form>
 
 
 
     <!-- script for stars -->
     <script>
         const stars = document.querySelectorAll(".fb_stars i");
+        const ratingInput = document.getElementById("ratingInput");
         stars.forEach((star, index1) => {
             star.addEventListener("click", () => {
                 stars.forEach((star, index2) => {
                     index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
                 })
+                ratingInput.value = index1 + 1;
             })
         })
     </script>

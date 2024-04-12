@@ -9,14 +9,9 @@ dotenv.config({path:"./env"});
 import mongoose from "mongoose";
 //importing the database name which we want to create from constant.js
 import { DB_NAME } from "./constant.js";
-
 //importing the mongodb connection constant variable from db
 import connectDB from "./db/db_index.js";
-
 import { app } from "./app.js";
-
-
-
 
 
 // for GETing the HOME page
@@ -36,23 +31,38 @@ app.get("/Joinus",(req,res)=>{
     res.render("forms_page/spform.ejs");
 })
 
+// ++++FEEDBACK++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//feedback fuction added
+import {submitFeedback } from "./controllers/feedback.controller.js"
 app.get("/feedback",(req,res)=>{
     res.render("navbar/feedback.ejs");
 })
+
+//after feedback submission
+app.post("/feedback/submit",submitFeedback)
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 app.get("/login",(req,res)=>{
     res.render("forms_page/log-reg.ejs");
 })
 
+
+// for search with ejs
 app.get("/search",(req,res)=>{
     res.render("searchpage.ejs");
 })
 
+// app.post("/search", (req, res) => {
+//     const city = req.body.choice;
+//     const service = req.body.service;
 
+//     //use of backend here BELOW
 
-
-
-
+//     res.render("searchpage.ejs",{ 
+//         db: song,
+//     });
+// });
 
 
 
