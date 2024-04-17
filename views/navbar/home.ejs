@@ -1,8 +1,124 @@
 <%- include("../partials/header.ejs") %>
 
-<h1>
-    HELLO WELCOME TO HOME PAGE!!
-</h1>
+<!-- if we want to provide the city and pincodes which are available by the companey then we ahve to edit it manually -->
+<!-- by changing in the home page of the website -->
+
+<div class="home_body">
+    
+  <form class="searchbar" action="/submit">
+    <select name="city" id="cityname" class="sbaritem" onchange="populatePincode()">
+        <option value="none" selected disabled hidden>Select City</option>
+        <option value="Ahemdabad">Ahemdabad</option>
+        <option value="Surat">Surat</option>
+        <option value="Gandinagar">Gandinagar</option>
+        <option value="Himatnagar">Himatnagar</option>
+    </select>
+
+    <select name="service" id="service" class="sbaritem">
+        <option value="none" selected disabled hidden>Select Service</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Painter">Painter</option>
+        <option value="Carpanter">Carpanter</option>
+    </select>
+
+    <select name="pincode" id="pincode" class="sbaritem" disabled>
+        <option value="none" selected disabled hidden>Select Pincode</option>
+    </select>
+
+    <input type="submit" value="🔎" class="submitbtn">
+</form>
+
+    <div class="home_part-1">
+      <div class="hp-1-left">
+        <h1>Home services at your <br> doorstep</h1>
+        <div class="hp1-l-box1">
+          <h3>What service you want?</h3>
+          <div class="sub-1">
+
+              <div class="subsub">
+                  <div class="img">
+                    <img src="/images/home/air-conditioner.png" alt="" srcset="">
+                  </div>
+                  <h5 class="text">AC repair</h5>
+              </div>
+
+              <div class="subsub">
+                <div class="img">
+                  <img src="/images/home/plumber.png" alt="" srcset="">
+                </div>
+                <h5 class="text">Plumber,Water problems</h5>
+              </div>
+
+              <div class="subsub">
+                <div class="img">
+                  <img src="/images/home/electrician.png" alt="" srcset="">
+                </div>
+                <h5 class="text">Electrician</h5>
+              </div>
+
+              <div class="subsub">
+                <div class="img">
+                  <img src="/images/home/carpenter.png" alt="" srcset="">
+                </div>
+                <h5 class="text">Carpenter</h5>
+              </div>
+
+              <div class="subsub">
+                <div class="img">
+                  <img src="/images/home/maid.png" alt="" srcset="">
+                </div>
+                <h5 class="text">House Maid</h5>
+              </div>
+              
+              <div class="subsub">
+                <div class="img">
+                  <img src="/images/home/painter.png" alt="" srcset="">
+                </div>
+                <h5 class="text">House painter</h5>
+              </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="hp-1-right">
+          <img src="/images/main.png" alt="" srcset="">
+      </div>
+
+    </div>
+
+</div>
+
+<script>
+  function populatePincode() {
+      var city = document.getElementById("cityname").value;
+      var pincodeSelect = document.getElementById("pincode");
+
+      // Reset pincode select
+      pincodeSelect.innerHTML = '<option value="none" selected disabled hidden>Select Pincode</option>';
+
+      // Enable pincode select
+      pincodeSelect.disabled = false;
+
+      // Populate pincode options based on selected city
+      if (city === "Ahemdabad") {
+          populateOptions(pincodeSelect, ["380001", "380002", "380003"]); // Example pincode options for Ahemdabad
+      } else if (city === "Surat") {
+          populateOptions(pincodeSelect, ["395001", "395002", "395003"]); // Example pincode options for Surat
+      }
+      // Add more conditions for other cities if needed
+  }
+
+  function populateOptions(selectElement, options) {
+      options.forEach(function(option) {
+          var optionElement = document.createElement("option");
+          optionElement.value = option;
+          optionElement.text = option;
+          selectElement.appendChild(optionElement);
+      });
+  }
+</script>
 
 
 <%- include("../partials/footer.ejs") %>

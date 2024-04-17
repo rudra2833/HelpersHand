@@ -31,9 +31,36 @@ app.get("/Joinus",(req,res)=>{
     res.render("forms_page/spform.ejs");
 })
 
+
+
+
+// ++++Sigin-And-Registeration-Of-User+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+import { registerUser, loginUser, logoutUser, loggedInUser } from "./controllers/user.controller.js"
+
+//when clicks login when comes
+app.get("/user", async (req,res)=>{
+    res.render("forms_page/log-reg.ejs",{message:""});
+})
+
+//when user registers
+app.post("/user/register",registerUser)
+
+
+//when user logins
+app.post("/user/login",loginUser)
+
+//when user logout
+//do this action at the userprofile
+app.post("/user/logout",logoutUser)
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
 // ++++FEEDBACK++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //feedback fuction added
-import {submitFeedback } from "./controllers/feedback.controller.js"
+import { submitFeedback } from "./controllers/feedback.controller.js"
 app.get("/feedback",(req,res)=>{
     res.render("navbar/feedback.ejs");
 })
@@ -41,11 +68,6 @@ app.get("/feedback",(req,res)=>{
 //after feedback submission
 app.post("/feedback/submit",submitFeedback)
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-app.get("/login",(req,res)=>{
-    res.render("forms_page/log-reg.ejs");
-})
 
 
 // for search with ejs

@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 
 const review = new Schema({
     username: {
-        type: string,
+        type: String,
         required: true,
         lowercase: true,
         trim: true,
@@ -18,9 +18,10 @@ const review = new Schema({
         type: String,
         required: true,
     }
+
 })
 
-const Book = new Schema({
+const book = new Schema({
 
     timeslot: {
         type: String,
@@ -32,95 +33,116 @@ const Book = new Schema({
     }
 });
 
+
+// create a pipeline
 const pastbooks = new Schema({
-    bookingId: {
+    
+    bookingid: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Booking'
     },
 },
-{timestamps: true,}
+    {
+        timestamps: true,
+    }
 );
 
 const serviceInfo = new Schema({
-    Providername: {
-        type: String,
-        required: true,
-        lowercase: true,
-        trim: true,
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true,
-        lowercase: true,
-        trim: true,
-    },
-    Phoneno: {
-        type: String,
-        required: true,
-        trim: true,
 
-    },
-    Adharno: {
-        type: String,
-        required: true,
-        trim: true,
-
-    },
-    birthday: {
-        type: Date,
-        required: true,
-    },
-    Password: {
+    providername: {
         type: String,
         required: true,
         lowercase: true,
         trim: true,
-        unique: true,
     },
-    Catagory: {
+
+    // email: {
+    //     type: String,
+    //     required: true,
+    //     unique: true,
+    //     lowercase: true,
+    //     trim: true,
+    // },
+
+    // phoneno: {
+    //     type: String,
+    //     required: true,
+    //     trim: true,
+    // },
+
+    // adharno: {
+    //     type: String,
+    //     required: true,
+    //     trim: true,
+
+    // },
+
+    // birthday: {
+    //     type: Date,
+    //     required: true,
+    // },
+
+    // password: {
+    //     type: String,
+    //     required: true,
+    //     lowercase: true,
+    //     trim: true,
+    //     unique: true,
+    // },
+
+    category: {
         type: String,
         required: true,
     },
-    Charges: {
+
+    charges: {
         type: Number,
         required: true,
         trim: true,
     },
-    Rating: {
-        type: Number, // Assuming rating will be a number
-        required: true,
-        min: 1, // Minimum rating value
-        max: 5, // Maximum rating value
-    },
-    Availability: {
+
+    // create a pipe line for that
+    // or edit it when anyone rates the provider
+    // rating: {
+    //     type: Number, // Assuming rating will be a number
+    //     default: 0,
+    //     min: 1, // Minimum rating value
+    //     max: 5, // Maximum rating value
+    // },
+
+    availability: {
         type: Boolean,
         required: true,
     },
+
     city: {
         type: String,
         required: true,
         lowercase: true,
         trim: true,
     },
+
     reviewers: {
         type: [review],
-        required: true,
     },
-    pincode: {
-        type: Number,
-        required: true,
-    },
-    slot: {
-        type: [Book],
-        required: true,
-    },
-    PastBooking: {
-        type: [pastbooks],
-        required: true,
-    }
-},
-{timestamps: true,}
-)
 
-export const ServiceInfo = mongoose.model('ServiceInfo', serviceInfo);
+    pincodes: {
+        type: [String],
+        required: true,
+    },
+
+    // slot: {
+    //     type: [book],
+    //     required: true,
+    // },
+
+    // pastBooking: {
+    //     type: [pastbooks],
+    //     required: true,
+    // }
+
+}, {
+    timestamps: true,
+})
+
+export const ServiceInfo = mongoose.model('serviceinfo', serviceInfo);

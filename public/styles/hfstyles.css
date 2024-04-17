@@ -10,13 +10,17 @@ html{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
   transition-duration: .5s;
 }
 
 /* navbar */
 
 header{
-  padding: 20px 20px;
+  padding: 8px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.329);
+  border-radius: 10px;
 }
 
 .nav-bar{
@@ -53,6 +57,7 @@ header a{
   text-decoration: none;
   color: black;
   font-weight: bolder;
+  font-weight: 600;
 }
 
 .navbar-buttons {
@@ -129,6 +134,11 @@ header a{
   margin-bottom: 1.3rem;
 }
 
+.footer .content p {
+  font-size: 14px;
+}
+
+
 .footer .content a {
   text-decoration: none;
   color: #fefefe;
@@ -140,7 +150,8 @@ header a{
 
 .footer .content h4 {
   margin-bottom: 1.3rem;
-  font-size: 34px;
+  font-size: 30px;
+  font-weight: normal;
 }
 
 footer {

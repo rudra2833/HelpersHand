@@ -14,7 +14,7 @@ const submitFeedback = async (req, res) => {
     // console.log(name, email, message, rating);
 
     // Validate input fields
-    if ([name, email, message,rating ].every(field => field && field.trim() === "")) {
+    if ([ name, email, message,rating ].every(field => field && field.trim() === "")) {
         return res.status(400).json({ error: "All fields are required" });
     }
 
