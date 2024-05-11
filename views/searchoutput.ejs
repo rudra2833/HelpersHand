@@ -1,6 +1,7 @@
 <%- include("partials/header.ejs") %>
+<%- include("partials/searchbar.ejs") %>
     
-    <div class="out1">
+    <!-- <div class="out1">
 
         <a href="#" class="in_out1">
 
@@ -47,24 +48,31 @@
 
         </a>
 
-    </div>
+    </div> -->
+
+
+    <% if(!locals.db || locals.db.length === 0){ %>
+        <h2>No Service Provider available in this criteria</h2>
+        <% }else{ %>
+            <div class="out1">
+                
+                <% for(var i=0; i<locals.db.length; i++){ %>
+                    <a href="#" class="in_out1">
+                        <div class="io1_left">
+                            <img src="<%= locals.db[i].avatar %>" alt="">
+                        </div>
+                        <div class="io1_right">
+                            <span class="disp_name righti"> <%= locals.db[i].providername %> </span>
+                            <span class="disp_rate righti"> <%= locals.db[i].rating %>⭐ </span>
+                            <span class="disp_cat righti"> <%= locals.db[i].category %> </span>
+                            <span class="disp_price righti">₹  <%= locals.db[i].charges %> </span>
+                            <span class="disp_area righti"> <%= locals.db[i].city %> </span>
+                        </div>
+                            
+                    </a>
+                    <% } %>
+            </div>
+    <% } %>
 
 <%- include("partials/footer.ejs") %>
 
-
-<%# for(var i=0; i<db.length; i++){ %>
-<!-- <a href="#" class="in_out1">
-
-    <div class="io1_left">
-        <img src="" alt="">
-    </div>
-    <div class="io1_right">
-        <span class="disp_name righti"> <%#= db.name %> </span>
-        <span class="disp_cat righti"> <%#= db.category %> </span>
-        <span class="disp_rate righti"> <%#= db.rating %>⭐ </span>
-        <span class="disp_area righti"> <%#= db.city %> </span>
-        <span class="disp_price righti">₹ <%#= db.bprice %> </span>
-    </div>
-
-</a> -->
-<%# } %>

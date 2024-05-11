@@ -1,3 +1,5 @@
+
+
 import mongoose, { Schema } from "mongoose";
 
 
@@ -22,7 +24,6 @@ const review = new Schema({
 })
 
 const book = new Schema({
-
     timeslot: {
         type: String,
         required: true,
@@ -56,39 +57,35 @@ const serviceInfo = new Schema({
         trim: true,
     },
 
-    // email: {
-    //     type: String,
-    //     required: true,
-    //     unique: true,
-    //     lowercase: true,
-    //     trim: true,
-    // },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+        trim: true,
+    },
 
-    // phoneno: {
-    //     type: String,
-    //     required: true,
-    //     trim: true,
-    // },
+    phoneno: {
+        type: String,
+        required: true,
+        trim: true,
+    },
 
-    // adharno: {
-    //     type: String,
-    //     required: true,
-    //     trim: true,
+    adharno: {
+        type: String,
+        required: true,
+        trim: true,
+    },
 
-    // },
+    birthday: {
+        type: Date,
+        required: true,
+    },
 
-    // birthday: {
-    //     type: Date,
-    //     required: true,
-    // },
-
-    // password: {
-    //     type: String,
-    //     required: true,
-    //     lowercase: true,
-    //     trim: true,
-    //     unique: true,
-    // },
+    password: {
+        type: String,
+        required: [true, "Password is required"]
+    },
 
     category: {
         type: String,
@@ -103,12 +100,11 @@ const serviceInfo = new Schema({
 
     // create a pipe line for that
     // or edit it when anyone rates the provider
-    // rating: {
-    //     type: Number, // Assuming rating will be a number
-    //     default: 0,
-    //     min: 1, // Minimum rating value
-    //     max: 5, // Maximum rating value
-    // },
+    rating: {
+        type: Number, // Assuming rating will be a number
+        default: 0,
+        max: 5, // Maximum rating value
+    },
 
     availability: {
         type: Boolean,
@@ -131,15 +127,24 @@ const serviceInfo = new Schema({
         required: true,
     },
 
-    // slot: {
-    //     type: [book],
-    //     required: true,
-    // },
+    avatar:{
+        type:String,  //cloudinary url
+    },
 
-    // pastBooking: {
-    //     type: [pastbooks],
-    //     required: true,
-    // }
+    slot: {
+        type: [book],
+        required: true,
+        default: [
+            { timeslot: "Morning", status: true },
+            { timeslot: "Afternoon", status: true },
+            { timeslot: "Evening", status: true },
+            { timeslot: "Night", status: true }
+        ]
+    },
+
+    pastBooking: {
+        type: [pastbooks],
+    }
 
 }, {
     timestamps: true,

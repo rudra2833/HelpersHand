@@ -1,7 +1,5 @@
 import {Feedback} from '../models/feedback.model.js'
 
-import { app } from "../app.js";
-
 
 const submitFeedback = async (req, res) => {
     console.log("Server received feedback");

@@ -1,0 +1,61 @@
+<!-- if we want to provide the city and pincodes which are available by the companey then we ahve to edit it manually -->
+<!-- by changing in the home page of the website -->
+
+<form class="searchbar" action="/search" method="post">
+    <select name="city" id="cityname" class="sbaritem" onchange="populatePincode()">
+        <option value="none" selected disabled hidden>Select City</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Surat">Surat</option>
+        <option value="Gandinagar">Gandinagar</option>
+        <option value="Himatnagar">Himatnagar</option>
+    </select>
+
+    <select name="category" id="service" class="sbaritem">
+        <option value="none" selected disabled hidden>Select Service</option>
+        <option value="Electrician">Electrician</option>
+        <option value="Plumber">Plumber</option>
+        <option value="Painter">Painter</option>
+        <option value="Carpenter">Carpenter</option>
+    </select>
+
+    <select name="pincode" id="pincode" class="sbaritem" disabled>
+        <option value="none" selected disabled hidden>Select Pincode</option>
+    </select>
+
+    <input type="submit" value="🔎" class="submitbtn">
+</form>
+
+
+<script>
+    function populatePincode() {
+        var city = document.getElementById("cityname").value;
+        var pincodeSelect = document.getElementById("pincode");
+
+        // Reset pincode select
+        pincodeSelect.innerHTML = '<option value="none" selected disabled hidden>Select Pincode</option>';
+
+        // Enable pincode select
+        pincodeSelect.disabled = false;
+
+        // Populate pincode options based on selected city
+        if (city === "Ahmedabad") {
+            populateOptions(pincodeSelect, ["380058", "380059", "380060"]); // Example pincode options for Ahemdabad
+        } else if (city === "Surat") {
+            populateOptions(pincodeSelect, ["100201", "100202", "100203"]); // Example pincode options for Surat
+        } else if (city === "Gandinagar") {
+            populateOptions(pincodeSelect, ["400201", "400202", "400203"]); // Example pincode options for Surat
+        } else if (city === "Himatnagar") {
+            populateOptions(pincodeSelect, ["300101", "300102", "300103"]); // Example pincode options for Surat
+        }
+        // Add more conditions for other cities if needed
+    }
+
+    function populateOptions(selectElement, options) {
+        options.forEach(function (option) {
+            var optionElement = document.createElement("option");
+            optionElement.value = option;
+            optionElement.text = option;
+            selectElement.appendChild(optionElement);
+        });
+    }
+</script>

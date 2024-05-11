@@ -2,4 +2,5 @@
 
 
 //writing the name of the database and exporting it
-export const DB_NAME = "Rudra-side"
+// export const DB_NAME = "Rudra-side"
+export const DB_NAME = "database1"

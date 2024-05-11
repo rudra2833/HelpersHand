@@ -53,12 +53,10 @@ app.post("/user/login",loginUser)
 //do this action at the userprofile
 app.post("/user/logout",logoutUser)
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-
-
-// ++++FEEDBACK++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++FEEDBACK+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //feedback fuction added
 import { submitFeedback } from "./controllers/feedback.controller.js"
 app.get("/feedback",(req,res)=>{
@@ -67,24 +65,22 @@ app.get("/feedback",(req,res)=>{
 
 //after feedback submission
 app.post("/feedback/submit",submitFeedback)
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-// for search with ejs
-app.get("/search",(req,res)=>{
-    res.render("searchpage.ejs");
-})
+// ++++SEARCH+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+import { search } from "./controllers/search.controller.js"
+app.post("/search",search);
 
-// app.post("/search", (req, res) => {
-//     const city = req.body.choice;
-//     const service = req.body.service;
 
-//     //use of backend here BELOW
 
-//     res.render("searchpage.ejs",{ 
-//         db: song,
-//     });
-// });
+
+
+
+
+
+
+// +++++ADMIN-SERVICE-PROVIDER-ADD+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 
