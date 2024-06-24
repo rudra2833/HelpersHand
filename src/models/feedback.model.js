@@ -27,6 +27,9 @@ const feedbackSchema = new mongoose.Schema({
         min: 1, // Minimum rating value
         max: 5, // Maximum rating value
     },
+},
+{
+    timestamps: true,
 });
 
 export const Feedback = mongoose.model('Feedback', feedbackSchema);

@@ -27,33 +27,73 @@ app.get("/aboutus",(req,res)=>{
     res.render("navbar/aboutus.ejs");
 })
 
-app.get("/Joinus",(req,res)=>{
+
+
+
+// ++++CONTACT-US-AND-NEW-SP-REQUEST+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+import { sprequest, sendsprequest } from "./controllers/sprequest.controller.js"
+
+// for submiting the form for new service provider
+app.post("/sendrequest/submit",sendsprequest);
+
+//send the contact us page
+app.get("/joinus",(req,res)=>{
     res.render("forms_page/spform.ejs");
 })
 
+//for sending new confirm request
+app.post("/joinus/submit",sprequest);
 
 
 
-// ++++Sigin-And-Registeration-Of-User+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-import { registerUser, loginUser, logoutUser, loggedInUser } from "./controllers/user.controller.js"
-
-//when clicks login when comes
-app.get("/user", async (req,res)=>{
-    res.render("forms_page/log-reg.ejs",{message:""});
-})
-
-//when user registers
-app.post("/user/register",registerUser)
 
 
-//when user logins
-app.post("/user/login",loginUser)
 
-//when user logout
-//do this action at the userprofile
-app.post("/user/logout",logoutUser)
 
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// ++++Sign-In-And-Registration-Of-User+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+import { registerUser, loginUser, logoutUser, loggedInUser, ensureAuthenticated , userprofile , userbookings} from "./controllers/user.controller.js";
+import { userprofileEdit } from "./controllers/user.controller.js";
+
+// when user registers
+app.post("/user/register", registerUser);
+
+// when user logins
+app.post("/user/login", loginUser);
+
+// when clicks login when comes
+app.get("/user", ensureAuthenticated, async (req, res) => {
+    if (req.isAuthenticated) {
+        userprofile(res,loggedInUser);
+    } else {
+        res.render("forms_page/log-reg.ejs");
+    }
+});
+
+//profile edit
+app.post("/user/profile/submit",userprofileEdit);
+
+
+//booking page for user
+app.get("/user/bookings", ensureAuthenticated, async (req, res) => {
+    if (req.isAuthenticated) {
+        userbookings(res,loggedInUser);
+    } else {
+        res.render("forms_page/log-reg.ejs");
+    }
+});
+
+// when user logout
+// do this action at the user profile
+app.post("/user/logout", logoutUser);
+
+
+
+
+
+
+
+
 
 
 // ++++FEEDBACK+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -65,13 +105,23 @@ app.get("/feedback",(req,res)=>{
 
 //after feedback submission
 app.post("/feedback/submit",submitFeedback)
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
 
 
 // ++++SEARCH+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-import { search } from "./controllers/search.controller.js"
+import { search , sppacket , sppacket_feedback} from "./controllers/search.controller.js"
 app.post("/search",search);
 
+app.get('/serviceprovider',sppacket);
+
+app.post('/sp/feedback',sppacket_feedback);
 
 
 
@@ -80,8 +130,9 @@ app.post("/search",search);
 
 
 
-// +++++ADMIN-SERVICE-PROVIDER-ADD+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+
+// ++++BOOKING-PROCESS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 

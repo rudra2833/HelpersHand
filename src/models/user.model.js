@@ -28,6 +28,11 @@ const userSchema = new Schema({
         trim: true,
         index: true
     },
+    
+    fullname:{
+        type: String,
+        trim: true
+    },
 
     email: {
         type: String,
@@ -46,9 +51,6 @@ const userSchema = new Schema({
         type: String,
         trim: true,
     },
-    addresses:{
-        type: [addressSchema]
-    },
     bookings:{
         type: [pastbooks]
     }
@@ -60,8 +62,7 @@ const userSchema = new Schema({
 
 userSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();
-  
-
+    
     this.password = await bcrypt.hash(this.password, 10)
    
     next()

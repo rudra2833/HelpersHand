@@ -80,11 +80,28 @@
             <div class="SPrequest">
                 <h2>Join as an employee..</h2>
                 <p>We are greatful to have you as our employee</p>
-                <a href="/Joinus">Send Request.</a>
+
+                <form action="/sendrequest/submit" method="post">
+
+                    <label
+                        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        for="email">
+                        Email
+                    </label>
+                    <input
+                        class="mb-5 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        type="email" placeholder="Enter email" name="email">
+                    <button
+                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gray-200 border border-gray-300 text-gray-700 hover:bg-gray-300 hover:border-gray-400 h-10 px-4 py-2 w-full sm:w-auto"
+                        type="submit" style="background-color: #3d5a80; color: white">
+                        Submit
+                    </button>
+                </form>
+                <!-- <a href="/Joinus">Send Request.</a> -->
             </div>
         </div>
 
     </div>
 
 
-<%- include("../partials/footer.ejs") %>
+    <%- include("../partials/footer.ejs") %>

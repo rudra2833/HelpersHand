@@ -3,67 +3,71 @@
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
 <!-- below is service provider form -->
+<form action="/joinus/submit" method="post">
 
-<div class="sp_conta">
+    <div class="sp_conta">
 
-    <div class="sp_backer">
-        <a href="/contactus" class="sp_backerpointer">
-            <i class="bx bxs-left-arrow"></i>
-        </a>
-    </div>
-
-    <div class="sp_imga">
-        <img src="/images/Logo.png" alt="">
-    </div>
-
-    <div class="sp_wrapper">
-
-        <div class="sp_wrap-left">
-            <h2 class="sp_left-inside-box sp_left-t1">Thanks For Your Interest</h2>
-            <h2 class="sp_left-inside-box sp_left-t2">Lets Help others Together</h2>
-            <h2 class="sp_left-inside-box sp_left-t3">Become a part of an awesome fleet</h2>
+        <div class="sp_backer">
+            <a href="/contactus" class="sp_backerpointer">
+                <i class="bx bxs-left-arrow"></i>
+            </a>
         </div>
 
-        <div class="sp_wrap-middle">
-
-            <div class="sp_mid-inside-box sp_mid-t1">
-                <header>Join Us</header>
-            </div>
-
-            <div class="sp_mid-inside-box sp_mid-t2">
-                <div class="sp_form sp_mid-t2-name">
-                    <input class="sp_perName" type="text" placeholder="Enter FullName" required />
-                    <i class="bx bxs-user"></i>
-                </div>
-                <div class="sp_form sp_mid-t2-email">
-                    <input class="sp_perEID" type="email" placeholder="Enter Email-id" required />
-                    <i class="bx bxs-envelope"></i>
-                </div>
-                <div class="sp_form sp_mid-t2-phoneno.">
-                    <input class="sp_perPhoneno" type="tel" maxlength="10" placeholder="Enter PhoneNo" required />
-                    <i class="bx bxs-phone"></i>
-                </div>
-            </div>
-
-            <div class="sp_mid-inside-box sp_sub">
-                <input class="sp_sub-btn" type="submit" value="Submit">
-            </div>
+        <div class="sp_imga">
+            <img src="/images/Logo.png" alt="">
         </div>
 
-        <div class="sp_wrap-right">
-            <h2 class="sp_right-inside-box sp_right-t1">Steps</h2>
-            <div class="sp_right-inside-box sp_right-t2">
-                <div class="sp_t2">
-                    1. Register yourself by providing your details in the form and verify yourself.
+        <div class="sp_wrapper">
+
+            <div class="sp_wrap-left">
+                <h2 class="sp_left-inside-box sp_left-t1">Thanks For Your Interest</h2>
+                <h2 class="sp_left-inside-box sp_left-t2">Lets Help others Together</h2>
+                <h2 class="sp_left-inside-box sp_left-t3">Become a part of an awesome fleet</h2>
+            </div>
+
+            <div class="sp_wrap-middle">
+
+                <div class="sp_mid-inside-box sp_mid-t1">
+                    <header>Join Us</header>
                 </div>
-                <div class="sp_t2">
-                    2. Then our team will contact you asap within 2-3 buisness days.
+
+                <div class="sp_mid-inside-box sp_mid-t2">
+                    <div class="sp_form sp_mid-t2-name">
+                        <input class="sp_perName" type="text" name="fullname" placeholder="Enter FullName" required />
+                        <i class="bx bxs-user"></i>
+                    </div>
+                    <div class="sp_form sp_mid-t2-email">
+                        <input class="sp_perEID" type="email" name="email" placeholder="Enter Email-id" required />
+                        <i class="bx bxs-envelope"></i>
+                    </div>
+                    <div class="sp_form sp_mid-t2-phoneno.">
+                        <input class="sp_perPhoneno" type="tel" maxlength="10" name="phoneno"
+                            placeholder="Enter PhoneNo" required />
+                        <i class="bx bxs-phone"></i>
+                    </div>
                 </div>
-                <div class="sp_t2">
-                    3. Then Welcome aboard...
+
+                <div class="sp_mid-inside-box sp_sub">
+                    <!-- <input class="sp_sub-btn" type="submit" value="Submit"> -->
+                    <button class="sp_sub-btn" type="submit">Submit</button>
                 </div>
             </div>
-        </div>
 
+            <div class="sp_wrap-right">
+                <h2 class="sp_right-inside-box sp_right-t1">Steps</h2>
+                <div class="sp_right-inside-box sp_right-t2">
+                    <div class="sp_t2">
+                        1. Register yourself by providing your details in the form and verify yourself.
+                    </div>
+                    <div class="sp_t2">
+                        2. Then our team will contact you asap within 2-3 buisness days.
+                    </div>
+                    <div class="sp_t2">
+                        3. Then Welcome aboard...
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
+</form>

@@ -1,0 +1,160 @@
+<%- include("partials/header.ejs") %>
+    <%- include("partials/searchbar.ejs") %>
+        <link rel="stylesheet" href="/styles/sppacket.css">
+
+        <div class="ad_main">
+            <div class="ad_body">
+
+                <!-- profile image(left), name email and phone number(right) -->
+                <div class="ad_body_1">
+
+                    <div class="body_1_left">
+                        <img src="<%= locals.db[0].avatar %>" alt="">
+                    </div>
+
+                    <div class="body_1_right">
+
+                        <!-- sp name -->
+                        <div class="right_name items">
+                            <h3>Name: </h3>
+                            <p>
+                                <%= locals.db[0].providername %>
+                            </p>
+                        </div>
+
+                        <!-- sp Category -->
+                        <div class="right_Category items hide_element">
+                            <h3>Category: </h3>
+                            <p>
+                                <%= locals.db[0].category%>
+                            </p>
+                        </div>
+
+                        <!-- sp Rating -->
+                        <div class="right_rating items">
+                            <h3>Rating: </h3>
+                            <p>
+                                <%= (locals.db[0].rating===0)? "-" : (locals.db[0].rating) %>⭐
+                            </p>
+                        </div>
+
+                        <!-- sp Charges -->
+                        <div class="right_price items hide_element">
+                            <h3>Price: <span class="price">Rs <%= locals.db[0].charges %></span> </h3>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- profile details -->
+                <div class="ad_body_2">
+
+
+
+                    <!-- sp City -->
+                    <div class="right_City items hide_element">
+                        <h3>City: </h3>
+                        <p>
+                            <%= locals.db[0].city %>
+                        </p>
+                    </div>
+
+                    <!-- sp Pincodes -->
+                    <div class="right_Pincode items hide_element">
+                        <h3>Pincodes: </h3>
+                        <ul class="pincodes_list">
+                            <% locals.db[0].pincodes.forEach(function(pincode) { %>
+                                <li class="pins">
+                                    <%= pincode %>
+                                </li>
+                                <% }) %>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- Booking btn -->
+                <div class="Booking_btn">
+
+                    <button id="editProfileBtn" class="button" type="button">
+                        Book Appointment
+                    </button>
+
+                </div>
+
+                <div class="horline"></div>
+
+                <!-- customer feedback for the sp -->
+                <div class="ad_body_3">
+
+                    <h2>Customer Feedback</h2>
+
+                    <!-- here ejs is in the controller -->
+
+                    <div class="ad_feedbacks">
+                        <form action="/sp/feedback" method="post">
+
+                            <input type="text" name="spid" value="<%= locals.db[0].spid %>" hidden>
+
+                            <div class="ad_feedback_form">
+
+                                <div class="feedback_name items">
+                                    <h4>Username: </h4>
+                                    <input type="text" name="cust_username" id="customer_username" required>
+                                </div>
+
+                                <div class="feedback_rating items">
+                                    <h4>Rating: </h4>
+                                    <input type="number" name="cust_rating" id="customer_rating" required>
+                                </div>
+
+                                <div class="feedback_review items">
+                                    <h4>Review: </h4>
+                                    <textarea name="cust_message" id="customer_review" required></textarea>
+                                </div>
+
+                                <div class="feedback_submit">
+                                    <button type="submit" class="button">Submit</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <% if(locals.db[0].reviewers[0] == null){ %>
+                        <h3>Be first one to give Review</h3>
+                    <% } else { %>
+                        <% for(var i=0; i< (locals.db[0].reviewers.length); i++){ %>
+                    
+                            <div class="ad_feedbacks">
+                    
+                                <div class="feedback_name items">
+                                    <h4>Customer name: </h4>
+                                    <p class="customer_username"><%= locals.db[0].reviewers[i].username %></p>
+                                </div>
+                    
+                                <div class="feedback_rating items">
+                                    <h4>Rating: </h4>
+                                    <p class="customer_rating"><%= locals.db[0].reviewers[i].rating %></p>
+                                </div>
+                    
+                                <div class="feedback_review items">
+                                    <h4>Review: </h4>
+                                    <p class="customer_review"><%= locals.db[0].reviewers[i].message %></p>
+                                </div>
+                    
+                            </div>
+                            <% } %>
+                        <% } %>
+
+                </div>
+
+                <!-- <div class="horline"></div> -->
+
+            </div>
+        </div>
+
+
+        <%- include("partials/footer.ejs") %>

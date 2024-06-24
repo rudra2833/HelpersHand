@@ -1,78 +1,31 @@
 <%- include("partials/header.ejs") %>
 <%- include("partials/searchbar.ejs") %>
     
-    <!-- <div class="out1">
+<% if(!locals.db || locals.db.length === 0){ %>
+    <h2>No Service Provider available in this criteria</h2>
+<% } else { %>
+    <div class="out1">
+        <% for(var i=0; i<locals.db.length; i++){ %>
+            <a href="#" class="in_out1" id="<%= locals.db[i].spid %>" onclick="redirectToDetails('<%= locals.db[i].spid %>')">
+                <div class="io1_left">
+                    <img src="<%= locals.db[i].avatar %>" alt="">
+                </div>
+                <div class="io1_right">
+                    <span class="disp_name righti"> <%= locals.db[i].providername %> </span>
+                    <span class="disp_rate righti"> <%= locals.db[i].rating %>⭐ </span>
+                    <span class="disp_cat righti"> <%= locals.db[i].category %> </span>
+                    <span class="disp_price righti">₹  <%= locals.db[i].charges %> </span>
+                    <span class="disp_area righti"> <%= locals.db[i].city %> </span>
+                </div>
+            </a>
+        <% } %>
+    </div>
+<% } %>
 
-        <a href="#" class="in_out1">
-
-            <div class="io1_left">
-                <img src="" alt="">
-            </div>
-            <div class="io1_right">
-                <span class="disp_name righti">Russel Patel</span>
-                <span class="disp_cat righti">Electrician</span>
-                <span class="disp_rate righti">4.82⭐</span>
-                <span class="disp_area righti">Ahmedabad</span>
-                <span class="disp_price righti">₹ 250</span>
-            </div>
-
-        </a>
-
-        <a href="#" class="in_out1">
-
-            <div class="io1_left">
-                <img src="" alt="">
-            </div>
-            <div class="io1_right">
-                <span class="disp_name righti">Russel Patel</span>
-                <span class="disp_cat righti">Electrician</span>
-                <span class="disp_rate righti">4.82⭐</span>
-                <span class="disp_area righti">Ahmedabad</span>
-                <span class="disp_price righti">₹ 250</span>
-            </div>
-
-        </a>
-
-        <a href="#" class="in_out1">
-
-            <div class="io1_left">
-                <img src="" alt="">
-            </div>
-            <div class="io1_right">
-                <span class="disp_name righti">Russel Patel</span>
-                <span class="disp_cat righti">Electrician</span>
-                <span class="disp_rate righti">4.82⭐</span>
-                <span class="disp_area righti">Ahmedabad</span>
-                <span class="disp_price righti">₹ 250</span>
-            </div>
-
-        </a>
-
-    </div> -->
-
-
-    <% if(!locals.db || locals.db.length === 0){ %>
-        <h2>No Service Provider available in this criteria</h2>
-        <% }else{ %>
-            <div class="out1">
-                
-                <% for(var i=0; i<locals.db.length; i++){ %>
-                    <a href="#" class="in_out1">
-                        <div class="io1_left">
-                            <img src="<%= locals.db[i].avatar %>" alt="">
-                        </div>
-                        <div class="io1_right">
-                            <span class="disp_name righti"> <%= locals.db[i].providername %> </span>
-                            <span class="disp_rate righti"> <%= locals.db[i].rating %>⭐ </span>
-                            <span class="disp_cat righti"> <%= locals.db[i].category %> </span>
-                            <span class="disp_price righti">₹  <%= locals.db[i].charges %> </span>
-                            <span class="disp_area righti"> <%= locals.db[i].city %> </span>
-                        </div>
-                            
-                    </a>
-                    <% } %>
-            </div>
-    <% } %>
+<script>
+    function redirectToDetails(id) {
+        window.location.href = '/serviceprovider?id=' + id;
+    }
+</script>
 
 <%- include("partials/footer.ejs") %>
-

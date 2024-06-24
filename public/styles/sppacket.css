@@ -1,0 +1,208 @@
+.ad_main {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15rem;
+    margin-top: 1.5rem;
+    flex-direction: column;
+    gap: 10px;
+    padding: rem 20px;
+    background-color: rgb(243, 244, 246);
+}
+
+.ad_body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 2rem;
+    padding: 1rem 0;
+}
+
+.ad_body_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+}
+
+.body_1_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    gap: 20px;
+}
+
+.body_1_left img {
+    height: 220px;
+    width: 200px;
+}
+
+.body_1_right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    gap: 13px;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.items h3,
+.items h4,
+.items p {
+    margin: 0;
+    padding: 0;
+}
+
+.items h3,
+.items h4 {
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+}
+
+.items input {
+    font-size: medium;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.ad_body_2 {
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 3rem;
+    box-sizing: border-box;
+}
+
+.horline {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.222);
+}
+
+.ad_body_3 {
+    width: 100%;
+    height: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 3rem;
+    box-sizing: border-box;
+    margin-bottom: 3rem;
+}
+
+.ad_body_3 h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+.ad_body_3 h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.Booking_btn {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 ;
+}
+
+.Booking_btn button {
+    align-self: flex-end;
+    height: 2.5rem;
+    width: 10.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    border: 1px solid black;
+    background-color: #3d5a80;
+    color: white;
+}
+
+.right_price {
+    display: grid;
+    justify-content: center;
+    font-size: 1.12rem;
+    margin-left: 5rem;
+}
+
+.price {
+    border: none;
+    font-weight: normal;
+    font-size: large;
+}
+
+.ad_feedbacks {
+    border: 1px solid rgba(0, 0, 0, 0.299);
+    padding: 5px 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+.ad_feedbacks h4 {
+    color: rgba(0, 0, 0, 0.819);
+}
+
+.ad_feedback_form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.ad_feedback_form input{
+    width: 40%;
+}
+
+
+
+.ad_feedback_form textarea{
+    width: 80%;
+    height: 8rem;
+    border: 1px solid black;
+}
+
+
+.ad_feedbacks .feedback_submit button {
+    align-self: flex-end;
+    height: 2.5rem;
+    width: 10.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    border: 1px solid black;
+    background-color: #3d5a80;
+    color: white;
+    margin: 1rem 0;
+}

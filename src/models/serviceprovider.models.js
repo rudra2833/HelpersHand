@@ -1,5 +1,3 @@
-
-
 import mongoose, { Schema } from "mongoose";
 
 
@@ -16,11 +14,10 @@ const review = new Schema({
         min: 1, // Minimum rating value
         max: 5, // Maximum rating value
     },
-    review: {
+    message: {
         type: String,
         required: true,
     }
-
 })
 
 const book = new Schema({
@@ -50,6 +47,11 @@ const pastbooks = new Schema({
 
 const serviceInfo = new Schema({
 
+    spid:{
+        type: String,
+        required: true,
+    },
+
     providername: {
         type: String,
         required: true,
@@ -57,6 +59,7 @@ const serviceInfo = new Schema({
         trim: true,
     },
 
+    //this is unique
     email: {
         type: String,
         required: true,
@@ -151,3 +154,16 @@ const serviceInfo = new Schema({
 })
 
 export const ServiceInfo = mongoose.model('serviceinfo', serviceInfo);
+
+
+
+// app.get('/download', async (req, res) => {
+//     const jsonData = await ServiceInfo.find().lean().select("providername email phoneno adharno birthday category charges rating availability city pincodes"); // Fetch data from MongoDB
+//     console.log(jsonData);
+//     res.setHeader('Content-Type', 'text/csv');
+//     res.setHeader('Content-Disposition', 'attachment; filename="data.csv"');
+    
+//     fastCsv
+//     .write(jsonData, { headers: true })
+//     .pipe(res);
+// });

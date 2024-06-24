@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+
+
+<!-- left side -->
+<div class="flex h-screen">
+    <aside class="w-64 bg-[#1e3a8a] text-white mx-4 my-4 rounded-md overflow-y-auto flex flex-col justify-between bg-[#3d5a80]">
+        <div>
+          <div class="flex flex-col items-center py-6">
+            <span class="relative flex shrink-0 overflow-hidden rounded-full w-16 h-16">
+              <h1>T</h1>
+            </span>
+            <div class="mt-3 text-center">
+              <p class="text-lg font-semibold">Welcome, Ram</p>
+            </div>
+          </div>
+      
+          <nav class="flex flex-col ml-10">
+            <a class="block py-2 transition-colors nav-item" href="/user">
+              <i class="fas fa-user w-5 h-5 mr-2 inline-block"></i>
+              Personal Info.
+            </a>
+        
+            <a class="block py-2 transition-colors nav-item" href="/user/bookings">
+              <i class="fas fa-calendar-alt w-5 h-5 mr-2 inline-block"></i>
+              My Bookings
+            </a>
+          </nav>
+        </div>
+      
+        <form action="/user/logout" method="POST" class="text-center py-4 mx-auto">
+          <button type="submit" class="block py-2 btn-reset">
+            <i class="fas fa-sign-out-alt w-5 h-5 mr-2 inline-block"></i>
+            Log out
+          </button>
+        </form>
+      </aside>
