@@ -78,7 +78,7 @@
                 <!-- Booking btn -->
                 <div class="Booking_btn">
 
-                    <button id="editProfileBtn" class="button" type="button">
+                    <button onclick="bookingpass()" id="editProfileBtn" class="button" type="button">
                         Book Appointment
                     </button>
 
@@ -156,5 +156,13 @@
             </div>
         </div>
 
-
+<script>
+    function bookingpass(){
+        // Fetch the spid value from the hidden input field
+        const spid = document.querySelector('input[name="spid"]').value;
+        
+        // Redirect to the booking route with the spid as a query parameter
+        window.location.href = `/booking?spid=${spid}`;
+    }
+</script>
         <%- include("partials/footer.ejs") %>

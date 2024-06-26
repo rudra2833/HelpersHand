@@ -1,0 +1,56 @@
+body {
+    /* background-color: #f0f0f0; */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.ad_main {
+    /* width: 100%; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin: 0 15rem;
+    /* margin-top: 0; */
+    flex-direction: column;
+
+    padding: 5rem 20px;
+    background-color: rgb(243 244 246);
+}
+
+p{
+    margin-left: 25px;
+}
+
+.horline {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.222);
+}
+
+.TC{
+    display: grid;
+    justify-content: center;
+}
+
+
+ol{
+    margin-top: -5px;
+}
+
+li{
+    margin: 10px;
+}
+
+h4{
+    margin: 10px;
+}
+
+p + p { 
+    margin-top: 5px;
+}
+
+
+

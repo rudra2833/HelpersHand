@@ -58,7 +58,7 @@ const loginUser = asyncHandler(async (req, res) => {
     loggedInUser = user._id;
     
     console.log("User logged-in successfully!!");
-    res.redirect("/user");
+    res.redirect("/");
 });
 
 const logoutUser = asyncHandler(async (req, res) => {

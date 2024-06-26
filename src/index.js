@@ -27,6 +27,9 @@ app.get("/aboutus",(req,res)=>{
     res.render("navbar/aboutus.ejs");
 })
 
+app.get("/tc",(req,res)=>{
+    res.render("tc.ejs");
+})
 
 
 
@@ -133,7 +136,20 @@ app.post('/sp/feedback',sppacket_feedback);
 
 
 // ++++BOOKING-PROCESS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+import { bookingRequest , bookingconfirm} from "./controllers/bookingprocess.controller.js"
+app.get('/booking', ensureAuthenticated, async (req, res) => {
+    if(req.isAuthenticated){
+        const spid = req.query.spid;
+        bookingRequest(res,loggedInUser,spid);
+    }else{
+        res.render("forms_page/log-reg.ejs");
+    }
+});
 
+
+app.post("/bookingconfirm",async (req,res)=>{
+    bookingconfirm(res, req,loggedInUser);
+})
 
 
 //calling the function 
