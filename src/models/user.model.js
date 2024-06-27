@@ -12,7 +12,7 @@ const pastbooks = new Schema({
 
     bookingid: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'booking'
+        ref: 'Booking'
     },
 },{timestamps: true,}
 )

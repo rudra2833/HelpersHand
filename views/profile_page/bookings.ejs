@@ -9,59 +9,27 @@
             <div class="flex items-center justify-between mb-4">
                 <h1 class="text-2xl font-bold">Bookings</h1>
             </div>
+            <% if(locals.db.lenght !==0 ) { %>
             <div class="grid grid-cols-1 gap-4 overflow-y-auto">
-
-
-
+                <% locals.db.forEach(element => { %>
                 <a class="bg-gray-100 p-4 rounded-md" href="#">
                     <div class="flex items-center justify-between">
-                        <p class="font-medium text-xl" id="category">Plumber</p>
+                        <p class="font-medium text-xl" id="category"><%= element.category %></p>
                     </div>
-                    <p class="text-gray-500"><strong>Service Provider Name:</strong> Ramesh Thakkur</p>
-                    <p class="text-gray-500"><strong>Date</strong>: May 1, 2023</p>
-                    <p class="text-gray-500"><strong>Slot</strong>: Noon</p>
-                    <p class="text-gray-500"><strong>Address</strong>: Lorem ipsum dolor sit Lorem ipsum dolor, sit amet
-                        consectetur adipisicing elit. Odio nulla ullam vero temporibus aperiam provident sint, cumque
-                        sapiente delectus eos iure aliquam debitis voluptas esse, vel nostrum accusantium non beatae.
-                        amet.</p>
-                    <p class="text-gray-500"><strong>Price</strong>: $150</p>
+                    <p class="text-gray-500"><strong>Service Provider Name:</strong> <%= element.providerName %></p>
+                    <p class="text-gray-500"><strong>Date:</strong> <%= element.day %>/<%= element.month %>/<%= element.year %></p>
+                    <p class="text-gray-500"><strong>Time:</strong> <%= element.time %></p>
+                    <p class="text-gray-500"><strong>Address:</strong> <%= element.address %></p>
+                    <p class="text-gray-500"><strong>Price</strong>: ₹ <%= element.totalprize %></p>
+                    <p class="text-gray-500"><strong>Status</strong>: <%= element.status %></p>
                 </a>
-
-
-
-                <a class="bg-gray-100 p-4 rounded-md" href="#">
-                    <div class="flex items-center justify-between">
-                        <p class="font-medium text-xl">Electrician</p>
-                    </div>
-                    <p class="text-gray-500"><strong>Service Provider Name:</strong> Mahesh Chauhan</p>
-                    <p class="text-gray-500"><strong>Date</strong>: April 20, 2023</p>
-                    <p class="text-gray-500"><strong>Slot</strong>: Evening</p>
-                    <p class="text-gray-500"><strong>Address</strong>: Lorem ipsum dolor sit Lorem ipsum dolor, sit amet
-                        consectetur adipisicing elit. Odio nulla ullam vero temporibus aperiam provident sint, cumque
-                        sapiente delectus eos iure aliquam debitis voluptas esse, vel nostrum accusantium non beatae.
-                        amet.</p>
-                    <p class="text-gray-500"><strong>Price</strong>: $300</p>
-                </a>
-
-
-
-                <a class="bg-gray-100 p-4 rounded-md" href="#">
-                    <div class="flex items-center justify-between">
-                        <p class="font-medium text-xl">Plumber</p>
-                    </div>
-                    <p class="text-gray-500"><strong>Service Provider Name:</strong> Sujal Thakkur</p>
-                    <p class="text-gray-500"><strong>Date</strong>: Mrach 28, 2023</p>
-                    <p class="text-gray-500"><strong>Slot</strong>: Morning</p>
-                    <p class="text-gray-500"><strong>Address</strong>: Lorem ipsum dolor sit Lorem ipsum dolor, sit amet
-                        consectetur adipisicing elit. Odio nulla ullam vero temporibus aperiam provident sint, cumque
-                        sapiente delectus eos iure aliquam debitis voluptas esse, vel nostrum accusantium non beatae.
-                        amet.</p>
-                    <p class="text-gray-500"><strong>Price</strong>: $200</p>
-                </a>
-
-
-
+                <% }) %>
             </div>
+            <% }else{ %>
+                <div class="grid grid-cols-1 gap-4 overflow-y-auto">
+                    <h1>No Booking available currently</h1>
+                </div>
+                <% } %>
         </div>
     </main>
 

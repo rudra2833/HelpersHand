@@ -12,7 +12,7 @@
                 </div>
                 <div class="io1_right">
                     <span class="disp_name righti"> <%= locals.db[i].providername %> </span>
-                    <span class="disp_rate righti"> <%= locals.db[i].rating %>⭐ </span>
+                    <span class="disp_rate righti"> <%= (locals.db[0].rating===0)? "-" : (locals.db[0].rating) %>⭐ </span>
                     <span class="disp_cat righti"> <%= locals.db[i].category %> </span>
                     <span class="disp_price righti">₹  <%= locals.db[i].charges %> </span>
                     <span class="disp_area righti"> <%= locals.db[i].city %> </span>

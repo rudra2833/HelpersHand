@@ -55,8 +55,8 @@ app.post("/joinus/submit",sprequest);
 
 
 // ++++Sign-In-And-Registration-Of-User+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-import { registerUser, loginUser, logoutUser, loggedInUser, ensureAuthenticated , userprofile , userbookings} from "./controllers/user.controller.js";
-import { userprofileEdit } from "./controllers/user.controller.js";
+import { registerUser, loginUser, logoutUser, loggedInUser, ensureAuthenticated , userprofile , getUserBookingInfo} from "./controllers/user.controller.js";
+import { userprofileEdit} from "./controllers/user.controller.js";
 
 // when user registers
 app.post("/user/register", registerUser);
@@ -80,7 +80,7 @@ app.post("/user/profile/submit",userprofileEdit);
 //booking page for user
 app.get("/user/bookings", ensureAuthenticated, async (req, res) => {
     if (req.isAuthenticated) {
-        userbookings(res,loggedInUser);
+        getUserBookingInfo(res,loggedInUser);
     } else {
         res.render("forms_page/log-reg.ejs");
     }
@@ -90,8 +90,13 @@ app.get("/user/bookings", ensureAuthenticated, async (req, res) => {
 // do this action at the user profile
 app.post("/user/logout", logoutUser);
 
+import { forgetpassword } from "./controllers/user.controller.js";
+app.get("/forgotpass",(req,res)=>{
+    res.render("forgetpassword/forget_pass.ejs");
+})
 
 
+app.post("/forgotpass",forgetpassword);
 
 
 

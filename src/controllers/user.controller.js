@@ -2,6 +2,9 @@ import { ApiError } from "../utils/ApiError.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { User } from '../models/user.model.js';
 import { ApiResponse } from '../utils/APIResponse.js';
+import { Booking } from '../models/bookings.model.js';
+import mongoose from 'mongoose';
+import { sendEmail } from './sprequest.controller.js';
 
 let loggedInUser = null;
 
@@ -83,11 +86,6 @@ const userprofile = async (res,loggedInUser) => {
     res.render("profile_page/profile.ejs", { db: user });
 };
 
-const userbookings = async (res,loggedInUser) => {
-    const user = await User.findById(loggedInUser);
-    res.render("profile_page/bookings.ejs", { db: user });
-}
-
 const userprofileEdit = asyncHandler(async (req, res) => {
     const {fullname ,email, phoneno } = req.body;
 
@@ -113,4 +111,89 @@ const userprofileEdit = asyncHandler(async (req, res) => {
     res.redirect("/user");
 });
 
-export { registerUser, loginUser, logoutUser, loggedInUser, ensureAuthenticated , userprofile, userbookings, userprofileEdit };
+const getUserBookingInfo = async(res,loggedInUser) => {
+    try {
+        //finding user
+        const user = await User.findById(loggedInUser);
+    
+        // Aggregate bookings related to the user
+        const bookings = await Booking.aggregate([
+            {
+                $match: { user_id: new mongoose.Types.ObjectId(loggedInUser) }
+            },
+            {
+                $lookup: {
+                    from: 'serviceinfos',  // Ensure this matches your actual collection name
+                    localField: 'provider_id',
+                    foreignField: '_id',
+                    as: 'provider'
+                }
+            },
+            {
+                $unwind: "$provider"
+            },
+            {
+                $project: {
+                    _id: 0,
+                    date: 1, // Include the date field for formatting,
+                    time: "$time",
+                    totalprize: "$totalprize", 
+                    providerName: "$provider.providername",
+                    category: "$provider.category",
+                    address: "$address",
+                    status: "$status",
+                }
+            }
+        ]);
+
+        const formattedResult = bookings.map(item => {
+            const date = new Date(item.date);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+            const year = date.getFullYear();
+
+            return {
+                ...item,
+                day: day,
+                month: month,
+                year: year
+            };
+        });
+
+        console.log("Bookings:", formattedResult);
+
+        
+        // if (!bookings.length) {
+        //     throw new Error("Booking info is not available");
+        // }
+        res.render("profile_page/bookings.ejs", { db: formattedResult });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
+};
+
+const forgetpassword = async(req,res)=>{
+    const { email } = req.body;
+    const user = await User.findOne({ email })
+
+    if (!user) {
+        throw new ApiError(404, "User does not exist");
+    }
+
+    var random8digit = Math.floor(100000000 * Math.random());
+
+    sendEmail(email, "Password Reset", `Your new password is ${random8digit}`);
+
+    user.password = random8digit;
+
+    await user.save();
+    console.log("User password updated successfully!!");
+
+    res.redirect("/");
+
+}
+
+export { registerUser, loginUser, logoutUser, loggedInUser, ensureAuthenticated , userprofile, userprofileEdit};
+export { getUserBookingInfo , forgetpassword};
+
