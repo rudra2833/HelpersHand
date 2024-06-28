@@ -69,7 +69,7 @@ const bookingconfirm = async (res, req, loggedInUser) => {
         }
 
         // Send email to user
-        const userEmail = "monkeydluffy1483@gmail.com";
+        const userEmail = user.email;
         const userSubject = "Booking Confirmation - Helpers Hand Service";
         const userHtml = `<p style="color: black;">Dear <strong>${user.username}</strong>,<br>
         Thank you for choosing Helper's Hand for your <strong>${serviceProvider[0].category}</strong> needs!<br>
@@ -98,7 +98,7 @@ const bookingconfirm = async (res, req, loggedInUser) => {
         await sendEmail(userEmail, userSubject, userHtml);
 
         // Send email to service provider
-        const providerEmail = "rudrapatel2833@gmail.com";
+        const providerEmail = serviceProvider[0].email;
         const providerSubject = "New Booking Notification";
         const providerHtml = `<p>Dear ${serviceProvider[0].providername},</p>
         <p>

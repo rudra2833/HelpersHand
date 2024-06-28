@@ -6,4 +6,4 @@
 
 
 // contains all the sp data here so use this
-export const DB_NAME = "database1"
+export const DB_NAME = "HelpersHand"
